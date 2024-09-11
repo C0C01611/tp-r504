@@ -1,8 +1,5 @@
-def puiss():
+def puiss(a,b):
     try:
-        a = int(input("Choisissez un nombre :"))
-        b = int(input("Choisissez la valeur de la puissance :"))
-        
         # Vérifier que a et b sont des entiers
         if not type(a) is int:
             raise TypeError("Only integers are allowed")
@@ -16,5 +13,4 @@ def puiss():
     except TypeError as e:
         print(e)
 
-puiss()
 
