@@ -28,9 +28,9 @@ echo "Pourcentage de réponses de nginx1 : $percent_nginx1%"
 echo "Pourcentage de réponses de nginx2 : $percent_nginx2%"
 
 # Vérifier la répartition 50/50
-if [[ $(echo "$percent_nginx1 >= 45" | bc) -eq 1 && $(echo "$percent_nginx1 <= 55" | bc) -eq 1 ]]; then
-    echo "La répartition est proche de 50/50."
+if [[ $(echo "$percent_nginx1 == 50" | bc) -eq 1 ]]; then 
+    echo "La répartition est de 50/50."
 else
-    echo "La répartition n'est pas équilibrée."
+    echo "La répartition est de ." $percent_nginx1 "/" $percent_nginx2
 fi
 
