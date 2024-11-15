@@ -14,6 +14,37 @@ Vagrant.configure("2") do |config|
   # boxes at https://vagrantcloud.com/search.
   config.vm.box = "generic/debian11"
 
+	config.vm.network "forwarded_port", guest: 80, host: 8080
+
+    config.vm.provision "file", source: "index.html", destination: "/home/vagrant/index.html"
+  
+  # Provisionnement pour copier la configuration Nginx
+  config.vm.provision "file", source: "default.conf", destination: "/home/vagrant/default.conf"
+  
+  # Provisionnement pour installer Nginx et configurer la machine
+  config.vm.provision "shell", inline: <<-SHELL
+    # Mise à jour des paquets
+    sudo apt-get update
+    
+    # Installation de Nginx
+    sudo apt-get install -y nginx
+    
+    # Démarrer Nginx
+    sudo systemctl start nginx
+    
+    # Activer Nginx pour qu'il démarre au boot
+    sudo systemctl enable nginx
+    
+    # Copier le fichier de configuration Nginx dans le bon répertoire
+    sudo mv /home/vagrant/default.conf /etc/nginx/sites-available/default
+    
+    # Assurez-vous que Nginx utilise le bon répertoire pour les fichiers statiques
+    sudo mv /home/vagrant/index.html /var/www/html/index.html
+    
+    # Redémarrer Nginx pour appliquer la nouvelle configuration
+    sudo systemctl restart nginx
+  SHELL
+
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
