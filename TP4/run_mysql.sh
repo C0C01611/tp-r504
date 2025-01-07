@@ -1,8 +1,7 @@
 #!/bin/bash
-docker run -d \
-  -p 3307:3306  \
-  -v vol-sql-demo:/var/lib/mysql \
-  --name tp4-sql \
-  -- env MYSQL_ROOT_PASSWORD=foo \
+docker run --name tp4-mysql \
   --network net-tp4 \
-  mysql:8.0
+  -e MYSQL_ROOT_PASSWORD=foo \
+  -e MYSQL_DATABASE=tp4_db \
+  -p 3307:3306 \
+  -d mysql:latest
