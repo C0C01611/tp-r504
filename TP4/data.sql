@@ -1,7 +1,11 @@
-CREATE DATABASE demosql;
-USE demosql;
-CREATE TABLE myTable(id int AUTO_INCREMENT, name varchar(45) NOT NULL
-    , PRIMARY KEY (id) );
-INSERT INTO myTable (id, name) VALUES (NULL, 'bob');
-INSERT INTO myTable (id, name) VALUES (NULL, 'alice');
-INSERT INTO myTable (id, name) VALUES (NULL, 'john');
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100)
+);
+
+INSERT INTO users (name, email) VALUES
+('Alice', 'alice@example.com'),
+('Bob', 'bob@example.com');
