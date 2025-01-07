@@ -33,7 +33,7 @@ def newuser():
         errors = validate_username(username)
         
         if not errors:
-            message = f"Identifiant '{username}' valide. 🎉"
+            message = f"Identifiant '{username}' valide."
         else:
             message = "Erreurs :<br>" + "<br>".join(errors)
 

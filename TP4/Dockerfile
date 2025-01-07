@@ -2,7 +2,7 @@ FROM python:3.11
 
 # Installer les dépendances Python nécessaires
 RUN pip install --upgrade pip \
-    && pip install flask flask-mysqldb mysql-connector-python
+     pip install flask flask-mysqldb mysql-connector-python
 
 # Créer le répertoire de travail pour l'application
 WORKDIR /app
