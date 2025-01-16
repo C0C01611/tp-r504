@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+body {background-color: black;}
+pre {
+	font-weight: normal;
+	color: #bbb;
+}
+b {font-weight: normal}
+b.BOLD {color: #fff}
+b.ITA {font-style: italic}
+b.UND {text-decoration: underline}
+b.STR {text-decoration: line-through}
+b.UNDSTR {text-decoration: underline line-through}
+b.BLK {color: #000000}
+b.RED {color: #aa0000}
+b.GRN {color: #00aa00}
+b.YEL {color: #aa5500}
+b.BLU {color: #0000aa}
+b.MAG {color: #aa00aa}
+b.CYN {color: #00aaaa}
+b.WHI {color: #aaaaaa}
+b.HIK {color: #555555}
+b.HIR {color: #ff5555}
+b.HIG {color: #55ff55}
+b.HIY {color: #ffff55}
+b.HIB {color: #5555ff}
+b.HIM {color: #ff55ff}
+b.HIC {color: #55ffff}
+b.HIW {color: #ffffff}
+b.BBLK {background-color: #000000}
+b.BRED {background-color: #aa0000}
+b.BGRN {background-color: #00aa00}
+b.BYEL {background-color: #aa5500}
+b.BBLU {background-color: #0000aa}
+b.BMAG {background-color: #aa00aa}
+b.BCYN {background-color: #00aaaa}
+b.BWHI {background-color: #aaaaaa}
+</style>
+</head>
+<body>
+<pre>
+<b class=HIW>[ Lynis 3.0.8 ]</b>
+
+################################################################################
+  Lynis comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+  welcome to redistribute it under the terms of the GNU General Public License.
+  See the LICENSE file for details about using this software.
+
+  2007-2021, CISOfy - https://cisofy.com/lynis/
+  Enterprise support available (compliance, plugins, interface and tools)
+################################################################################
+
+
+[+] <b class=HIY>Initializing program</b>
+------------------------------------
+  - Detecting OS...                                           [ <b class=HIG>DONE</b> ]
+  - Checking profiles...                                      [ <b class=HIG>DONE</b> ]
+
+  ---------------------------------------------------
+  Program version:           3.0.8
+  Operating system:          Linux
+  Operating system name:     Debian
+  Operating system version:  12
+  Kernel version:            6.1.0
+  Hardware platform:         x86_64
+  Hostname:                  debian
+  ---------------------------------------------------
+  Profiles:                  /etc/lynis/default.prf
+  Log file:                  /var/log/lynis.log
+  Report file:               /var/log/lynis-report.dat
+  Report version:            1.0
+  Plugin directory:          /etc/lynis/plugins
+  ---------------------------------------------------
+  Auditor:                   [Not Specified]
+  Language:                  en
+  Test category:             all
+  Test group:                all
+  ---------------------------------------------------
+  - Program update status...                                  [ <b class=HIG>NO UPDATE</b> ]
+
+[+] <b class=HIY>System tools</b>
+------------------------------------
+  - Scanning available tools...                              
+  - Checking system binaries...                              
+
+[+] <b class=HIM>Plugins (phase 1)</b>
+------------------------------------
+ Note: plugins have more extensive tests and may take several minutes to complete 
+   
+  - <b class=CYN>Plugin</b>: <b class=HIW>debian</b>                     
+    [
+[+] <b class=HIY>Debian Tests</b>
+------------------------------------
+  - Checking for system binaries that are required by Debian Tests... 
+    - Checking /bin...                                        [ <b class=HIG>FOUND</b> ]
+    - Checking /sbin...                                       [ <b class=HIG>FOUND</b> ]
+    - Checking /usr/bin...                                    [ <b class=HIG>FOUND</b> ]
+    - Checking /usr/sbin...                                   [ <b class=HIG>FOUND</b> ]
+    - Checking /usr/local/bin...                              [ <b class=HIG>FOUND</b> ]
+    - Checking /usr/local/sbin...                             [ <b class=HIG>FOUND</b> ]
+  - Authentication:                                          
+    - PAM (Pluggable Authentication Modules):                
+      - libpam-tmpdir                                         [ <b class=HIR>Not Installed</b> ]
+  - File System Checks:                                      
+    - DM-Crypt, Cryptsetup &amp; Cryptmount:                     
+  - Software:                                                
+    - apt-listbugs                                            [ <b class=HIR>Not Installed</b> ]
+    - apt-listchanges                                         [ <b class=HIG>Installed and enabled for apt</b> ]
+    - needrestart                                             [ <b class=HIR>Not Installed</b> ]
+    - fail2ban                                                [ <b class=HIR>Not Installed</b> ]
+]
+
+[+] <b class=HIY>Boot and services</b>
+------------------------------------
+  - Service Manager                                           [ <b class=HIG>systemd</b> ]
+  - Checking UEFI boot                                        [ <b class=HIW>DISABLED</b> ]
+  - Checking presence GRUB2                                   [ <b class=HIG>FOUND</b> ]
+    - Checking for password protection                        [ <b class=HIR>NONE</b> ]
+  - Check running services (systemctl)                        [ <b class=HIG>DONE</b> ]
+        Result: found 16 running services                    
+  - Check enabled services at boot (systemctl)                [ <b class=HIG>DONE</b> ]
+        Result: found 12 enabled services                    
+  - Check startup files (permissions)                         [ <b class=HIG>OK</b> ]
+  - Running 'systemd-analyze security'                       
+        - avahi-daemon.service:                               [ <b class=HIR>UNSAFE</b> ]
+        - colord.service:                                     [ <b class=HIY>EXPOSED</b> ]
+        - cron.service:                                       [ <b class=HIR>UNSAFE</b> ]
+        - dbus.service:                                       [ <b class=HIR>UNSAFE</b> ]
+        - emergency.service:                                  [ <b class=HIR>UNSAFE</b> ]
+        - exim4.service:                                      [ <b class=HIR>UNSAFE</b> ]
+        - getty@tty1.service:                                 [ <b class=HIR>UNSAFE</b> ]
+        - ifup@enp0s3.service:                                [ <b class=HIR>UNSAFE</b> ]
+        - lightdm.service:                                    [ <b class=HIR>UNSAFE</b> ]
+        - lynis.service:                                      [ <b class=HIR>UNSAFE</b> ]
+        - plymouth-start.service:                             [ <b class=HIR>UNSAFE</b> ]
+        - polkit.service:                                     [ <b class=HIR>UNSAFE</b> ]
+        - rc-local.service:                                   [ <b class=HIR>UNSAFE</b> ]
+        - rescue.service:                                     [ <b class=HIR>UNSAFE</b> ]
+        - rtkit-daemon.service:                               [ <b class=HIW>MEDIUM</b> ]
+        - systemd-ask-password-console.service:               [ <b class=HIR>UNSAFE</b> ]
+        - systemd-ask-password-plymouth.service:              [ <b class=HIR>UNSAFE</b> ]
+        - systemd-ask-password-wall.service:                  [ <b class=HIR>UNSAFE</b> ]
+        - systemd-fsckd.service:                              [ <b class=HIR>UNSAFE</b> ]
+        - systemd-initctl.service:                            [ <b class=HIR>UNSAFE</b> ]
+        - systemd-journald.service:                           [ <b class=HIG>PROTECTED</b> ]
+        - systemd-logind.service:                             [ <b class=HIG>PROTECTED</b> ]
+        - systemd-networkd.service:                           [ <b class=HIG>PROTECTED</b> ]
+        - systemd-timesyncd.service:                          [ <b class=HIG>PROTECTED</b> ]
+        - systemd-udevd.service:                              [ <b class=HIW>MEDIUM</b> ]
+        - udisks2.service:                                    [ <b class=HIR>UNSAFE</b> ]
+        - upower.service:                                     [ <b class=HIG>PROTECTED</b> ]
+        - user@1000.service:                                  [ <b class=HIR>UNSAFE</b> ]
+
+[+] <b class=HIY>Kernel</b>
+------------------------------------
+  - Checking default run level                                [ <b class=HIG>RUNLEVEL 5</b> ]
+  - Checking CPU support (NX/PAE)                            
+    CPU support: PAE and/or NoeXecute supported               [ <b class=HIG>FOUND</b> ]
+  - Checking kernel version and release                       [ <b class=HIG>DONE</b> ]
+  - Checking kernel type                                      [ <b class=HIG>DONE</b> ]
+  - Checking loaded kernel modules                            [ <b class=HIG>DONE</b> ]
+      Found 86 active modules                                
+  - Checking Linux kernel configuration file                  [ <b class=HIG>FOUND</b> ]
+  - Checking default I/O kernel scheduler                     [ <b class=HIW>NOT FOUND</b> ]
+  - Checking for available kernel update                      [ <b class=HIG>OK</b> ]
+  - Checking core dumps configuration                        
+    - configuration in systemd conf files                     [ <b class=HIW>DEFAULT</b> ]
+    - configuration in /etc/profile                           [ <b class=HIW>DEFAULT</b> ]
+    - 'hard' configuration in /etc/security/limits.conf       [ <b class=HIW>DEFAULT</b> ]
+    - 'soft' configuration in /etc/security/limits.conf       [ <b class=HIW>DEFAULT</b> ]
+    - Checking setuid core dumps configuration                [ <b class=HIG>DISABLED</b> ]
+  - Check if reboot is needed                                 [ <b class=HIG>NO</b> ]
+
+[+] <b class=HIY>Memory and Processes</b>
+------------------------------------
+  - Checking /proc/meminfo                                    [ <b class=HIG>FOUND</b> ]
+  - Searching for dead/zombie processes                       [ <b class=HIG>NOT FOUND</b> ]
+  - Searching for IO waiting processes                        [ <b class=HIG>NOT FOUND</b> ]
+  - Search prelink tooling                                    [ <b class=HIG>NOT FOUND</b> ]
+
+[+] <b class=HIY>Users, Groups and Authentication</b>
+------------------------------------
+  - Administrator accounts                                    [ <b class=HIG>OK</b> ]
+  - Unique UIDs                                               [ <b class=HIG>OK</b> ]
+  - Consistency of group files (grpck)                        [ <b class=HIG>OK</b> ]
+  - Unique group IDs                                          [ <b class=HIG>OK</b> ]
+  - Unique group names                                        [ <b class=HIG>OK</b> ]
+  - Password file consistency                                 [ <b class=HIG>OK</b> ]
+  - Password hashing methods                                  [ <b class=HIG>OK</b> ]
+  - Checking password hashing rounds                          [ <b class=HIY>DISABLED</b> ]
+  - Query system users (non daemons)                          [ <b class=HIG>DONE</b> ]
+  - NIS+ authentication support                               [ <b class=HIW>NOT ENABLED</b> ]
+  - NIS authentication support                                [ <b class=HIW>NOT ENABLED</b> ]
+  - Sudoers file(s)                                           [ <b class=HIG>FOUND</b> ]
+    - Permissions for directory: /etc/sudoers.d               [ <b class=HIR>WARNING</b> ]
+    - Permissions for: /etc/sudoers                           [ <b class=HIG>OK</b> ]
+    - Permissions for: /etc/sudoers.d/README                  [ <b class=HIG>OK</b> ]
+  - PAM password strength tools                               [ <b class=HIY>SUGGESTION</b> ]
+  - PAM configuration files (pam.conf)                        [ <b class=HIG>FOUND</b> ]
+  - PAM configuration files (pam.d)                           [ <b class=HIG>FOUND</b> ]
+  - PAM modules                                               [ <b class=HIG>FOUND</b> ]
+  - LDAP module in PAM                                        [ <b class=HIW>NOT FOUND</b> ]
+  - Accounts without expire date                              [ <b class=HIY>SUGGESTION</b> ]
+  - Accounts without password                                 [ <b class=HIG>OK</b> ]
+  - Locked accounts                                           [ <b class=HIG>OK</b> ]
+  - Checking user password aging (minimum)                    [ <b class=HIY>DISABLED</b> ]
+  - User password aging (maximum)                             [ <b class=HIY>DISABLED</b> ]
+  - Checking expired passwords                                [ <b class=HIG>OK</b> ]
+  - Checking Linux single user mode authentication            [ <b class=HIG>OK</b> ]
+  - Determining default umask                                
+    - umask (/etc/profile)                                    [ <b class=HIY>NOT FOUND</b> ]
+    - umask (/etc/login.defs)                                 [ <b class=HIY>SUGGESTION</b> ]
+  - LDAP authentication support                               [ <b class=HIW>NOT ENABLED</b> ]
+  - Logging failed login attempts                             [ <b class=HIG>ENABLED</b> ]
+
+[+] <b class=HIY>Shells</b>
+------------------------------------
+  - Checking shells from /etc/shells                         
+    Result: found 8 shells (valid shells: 8).                
+    - Session timeout settings/tools                          [ <b class=HIY>NONE</b> ]
+  - Checking default umask values                            
+    - Checking default umask in /etc/bash.bashrc              [ <b class=HIY>NONE</b> ]
+    - Checking default umask in /etc/profile                  [ <b class=HIY>NONE</b> ]
+
+[+] <b class=HIY>File systems</b>
+------------------------------------
+  - Checking mount points                                    
+    - Checking /home mount point                              [ <b class=HIY>SUGGESTION</b> ]
+    - Checking /tmp mount point                               [ <b class=HIY>SUGGESTION</b> ]
+    - Checking /var mount point                               [ <b class=HIY>SUGGESTION</b> ]
+  - Query swap partitions (fstab)                             [ <b class=HIG>OK</b> ]
+  - Testing swap partitions                                   [ <b class=HIG>OK</b> ]
+  - Checking for old files in /tmp                            [ <b class=HIG>OK</b> ]
+  - Checking /tmp sticky bit                                  [ <b class=HIG>OK</b> ]
+  - Checking /var/tmp sticky bit                              [ <b class=HIG>OK</b> ]
+  - ACL support root file system                              [ <b class=HIG>ENABLED</b> ]
+  - Mount options of /                                        [ <b class=HIY>NON DEFAULT</b> ]
+  - Mount options of /dev                                     [ <b class=HIY>PARTIALLY HARDENED</b> ]
+  - Mount options of /dev/shm                                 [ <b class=HIY>PARTIALLY HARDENED</b> ]
+  - Mount options of /run                                     [ <b class=HIG>HARDENED</b> ]
+  - Total without nodev:5 noexec:7 nosuid:3 ro or noexec (W^X): 7 of total 26 
+  - Disable kernel support of some filesystems               
+
+[+] <b class=HIY>USB Devices</b>
+------------------------------------
+  - Checking usb-storage driver (modprobe config)             [ <b class=HIW>NOT DISABLED</b> ]
+  - Checking USB devices authorization                        [ <b class=HIY>ENABLED</b> ]
+  - Checking USBGuard                                         [ <b class=HIW>NOT FOUND</b> ]
+
+[+] <b class=HIY>Storage</b>
+------------------------------------
+  - Checking firewire ohci driver (modprobe config)           [ <b class=HIW>NOT DISABLED</b> ]
+
+[+] <b class=HIY>NFS</b>
+------------------------------------
+  - Check running NFS daemon                                  [ <b class=HIW>NOT FOUND</b> ]
+
+[+] <b class=HIY>Name services</b>
+------------------------------------
+  - Checking default DNS search domain                        [ <b class=HIG>FOUND</b> ]
+  - Checking search domains                                   [ <b class=HIG>FOUND</b> ]
+  - Searching DNS domain name                                 [ <b class=HIG>FOUND</b> ]
+      Domain name: a106.org                                  
+  - Checking /etc/hosts                                      
+    - Duplicate entries in hosts file                         [ <b class=HIG>NONE</b> ]
+    - Presence of configured hostname in /etc/hosts           [ <b class=HIG>FOUND</b> ]
+    - Hostname mapped to localhost                            [ <b class=HIG>NOT FOUND</b> ]
+    - Localhost mapping
